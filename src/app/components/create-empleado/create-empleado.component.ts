@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { EmpleadoServiceComponent } from '../../services/empleado-service/empleado-service.component';
 import { Router, RouterStateSnapshot } from '@angular/router';
-import swal from 'sweetalert';
 import Swal from 'sweetalert2'
 
 @Component({
