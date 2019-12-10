@@ -1,0 +1,147 @@
+<div class="container container-size">
+	<br>
+	<h3>Registrar Empleados</h3>
+	<br>
+	<form  
+		[formGroup]="formEmpleados" 
+		(ngSubmit)="crearEmpleados($event)">
+	  <div class="form-row">
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="nombres" 
+	      	placeholder="Nombres" 
+	      	name="nombres"
+	      	formControlName="nombres" 
+	      	[ngClass]="{ 'is-invalid': submitted && f.nombres.errors }">
+	      <div 
+	      	*ngIf="submitted && f.nombres.errors" 
+	      	class="invalid-feedback">
+        <div 
+          class="message"
+        	*ngIf="f.nombres.errors.required">El Campo Nombres es Obligatorio.</div>
+      </div>
+	    </div>
+	   
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="apellidos"  
+	      	placeholder="Apellidos" 
+	      	name="apellidos"
+	      	formControlName="apellidos" 
+	      	[ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }">
+	      <div 
+	      	*ngIf="submitted && f.nombres.errors" 
+	      	class="invalid-feedback">
+        <div 
+          class="message"
+        	*ngIf="f.nombres.errors.required"
+        >El Campo Apellidos es Obligatorio.</div>
+      </div>
+	    </div>
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <div class="col">
+
+	    	<select 
+	    		class="form-control" 
+	    		id="tipo_identificacion" 
+	    		placeholder="Tipo Identificación" 
+	    		name="tipo_identificacion"   
+	    		formControlName="tipo_identificacion" 
+	    		[ngClass]="{ 'is-invalid': submitted && f.tipo_identificacion.errors }">
+          <option 
+          	value="">Seleccioné tipo Identificación</option>
+          <option 
+          	[value]="tipoDocument.name" 
+          	*ngFor="let tipoDocument of arrTipoDocumento;let i = index">{{tipoDocument.alias}}</option>
+        </select>
+          <div 
+          	*ngIf="submitted && f.tipo_identificacion.errors" 
+          	class="invalid-feedback">
+            <div 
+            	class="message"
+            	*ngIf="f.tipo_identificacion.errors.required"
+            >El Campo Tipo Identificación es Obligatorio.</div>
+          </div>  
+
+	    </div>
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="n_identificacion"  
+	      	placeholder="Numero Identificación" 
+	      	name="n_identificacion"
+	      	formControlName="n_identificacion" 
+	      	[ngClass]="{ 'is-invalid': submitted && f.n_identificacion.errors }">
+	      <div 
+	      	*ngIf="submitted && f.nombres.errors" 
+	      	class="invalid-feedback">
+        	<div 
+        		class="message"
+        		*ngIf="f.nombres.errors.required"
+        	>El Campo Numero Identificación es Obligatorio.</div>
+      	</div>
+	    </div>
+	  </div>
+	  <br>
+	  <div class="form-row">
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="telefono" 
+	      	placeholder="Telefono" 
+	      	name="telefono"
+	       	formControlName="telefono" 
+	       	[ngClass]="{ 'is-invalid': submitted && f.telefono.errors }">
+	       <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+        	<div 
+        		class="message"
+        		*ngIf="f.nombres.errors.required">El Campo Telefono es Obligatorio.</div>
+      	</div>
+	    </div>
+	    <div class="col">
+	      <input type="text" class="form-control" id="correo"  placeholder="Correo" name="correo"
+	      formControlName="correo" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }">
+	      <div 
+	      	*ngIf="submitted && f.nombres.errors" 
+	      	class="invalid-feedback">
+        	<div 
+        	  class="message"
+        		*ngIf="f.nombres.errors.required">El Campo correo es Obligatorio.</div>
+      	</div>
+	    </div>
+	  </div>
+	   <br>
+	  <div class="form-row">
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="salario" 
+	      	placeholder="Salario" 
+	      	name="salario"
+	      	formControlName="salario" 
+	      	[ngClass]="{ 'is-invalid': submitted && f.salario.errors }">
+	      <div 
+	      	*ngIf="submitted && f.salario.errors" 
+	      	class="invalid-feedback">
+          <div
+          	class="message" 
+        		*ngIf="f.salario.errors.required">El Campo correo es Obligatorio.</div>
+      	</div>
+	    </div>
+	  </div>
+	  <br>
+	  <input 
+	  	class="btn-enviar" 
+	  	type="submit" 
+	  	value="Registrar Empleado">
+	</form>
+</div>

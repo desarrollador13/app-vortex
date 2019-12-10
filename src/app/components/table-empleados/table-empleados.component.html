@@ -1,0 +1,45 @@
+<div class="container">
+  <br>
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col" hidden>id Empleado</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Tipo Identificacion</th>
+        <th scope="col">Numero Identificacion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Salario</th>
+        <th scope="col">Eliminar</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataEmpleado;let i = index">
+          <th hidden>{{ item.id_empleado }}</th>
+          <td>{{ item.nombres }}</td>
+          <td>{{ item.apellidos }}</td>
+          <td>{{ item.tipo_identificacion }}</td>
+          <td>{{ item.n_identificacion }}</td>
+          <td>{{ item.telefono }}</td>
+          <td>{{ item.correo }}</td>
+          <td>{{ item.salario }}</td>
+          <td>
+          <button type="button" class="btn btn-primary  btn-eliminar" (click)="eliminarEmpleado(item)">Eliminar</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary  btn-eliminar" (click)="editarEmpleado(item)">Editar</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+        <!--<div class="alert alert-primary" role="alert" ng-if="alert">
+          Se ha agregado el item <strong>{{ item.descripcion }}</strong> al carrito
+        </div>
+        <h2>Item en el carrito: {{ itemsToCar.length }}</h2>
+        <pre>
+            {{ itemsToCar | json }}
+        </pre>-->
+</div>

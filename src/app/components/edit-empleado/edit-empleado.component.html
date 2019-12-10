@@ -1,0 +1,199 @@
+<div class="container container-size">
+	<br>
+	<h3>Editar Empleados</h3>
+	<br>
+	<form  
+		[formGroup]="formEmpleados" 
+		novalidate
+		(ngSubmit)="editEmpleados($event)">
+	  <div class="form-row">
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="nombres" 
+	      	placeholder="Nombres" 
+	      	name="nombres"
+	      	formControlName="nombres"
+	      	#nombres 
+	      	[(ngModel)] = "dataEmpleado.nombres">
+	      <div 
+	      	*ngIf="formEmpleados.controls['nombres'].invalid && 
+	      	(formEmpleados.controls['nombres'].dirty || 
+	      	formEmpleados.controls['nombres'].touched)" 
+	      	class="alert alert-danger">
+	      	<br>
+	        <div *ngIf="formEmpleados.controls['nombres'].errors.required">
+	          El Campo Nombres es Obligatorio.
+	        </div>
+      </div>
+
+	    </div>
+
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="apellidos"  
+	      	[(ngModel)]="dataEmpleado.apellidos"
+	      	placeholder="Apellidos" 
+	      	name="apellidos"
+	      	formControlName="apellidos" 
+	      	#apellidos>
+	    	<div 
+	    		*ngIf="formEmpleados.controls['apellidos'].invalid && 
+	    		(formEmpleados.controls['apellidos'].dirty || 
+	    		formEmpleados.controls['apellidos'].touched)" 
+	    		class="alert alert-danger">
+	    		<br>
+	        <div *ngIf="formEmpleados.controls['apellidos'].errors.required">
+	          El Campo apellidos es Obligatorio.
+	        </div>
+	      </div>
+	    </div>
+
+	  </div>
+
+	  <br>
+	  <div class="form-row">
+	    <div class="col">
+
+	    	<select 
+	    		class="form-control" 
+	    		id="tipo_identificacion" 
+	    		placeholder="Tipo Identificación" 
+	    		name="tipo_identificacion"   
+	    		formControlName="tipo_identificacion" 
+	    		#tipo_identificacion
+	    		[(ngModel)]="dataEmpleado.tipo_identificacion">
+         <option 
+          	value="">Seleccioné tipo Identificación</option>
+          <option 
+         		[value] = "dataEmpleado.tipo_identificacion" 
+          	*ngFor="let tipoDocument of arrTipoDocumento;let i = index">{{tipoDocument.alias}}</option>
+        </select>
+	    	<div 
+	    		*ngIf="formEmpleados.controls['tipo_identificacion'].invalid && 
+	    		(formEmpleados.controls['tipo_identificacion'].dirty || 
+	    		formEmpleados.controls['tipo_identificacion'].touched)" 
+	    		class="alert alert-danger">
+	    		 <br>
+	        <div *ngIf="formEmpleados.controls['tipo_identificacion'].errors.required">
+	          El Campo Tipo Identificación es Obligatorio.
+	        </div>
+	      </div>
+
+	    </div>
+
+
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="n_identificacion"  
+	      	placeholder="Numero Identificación" 
+	      	name="n_identificacion"
+	      	formControlName="n_identificacion" 
+	      	#n_identificacion
+	      	[(ngModel)]="dataEmpleado.n_identificacion">
+	    	<div 
+	    		*ngIf="formEmpleados.controls['n_identificacion'].invalid && 
+	    		(formEmpleados.controls['n_identificacion'].dirty || 
+	    		formEmpleados.controls['n_identificacion'].touched)" 
+	    		class="alert alert-danger">
+	    		<br>
+	        <div *ngIf="formEmpleados.controls['n_identificacion'].errors.required">
+	          El Campo Numero Identificación es Obligatorio.
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+
+
+	  <br>
+	  <div class="form-row">
+
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="telefono" 
+	      	placeholder="Telefono" 
+	      	name="telefono"
+	       	formControlName="telefono" 
+	       	#telefono
+	       	[(ngModel)]="dataEmpleado.telefono">
+	    	<div 
+	    		*ngIf="formEmpleados.controls['telefono'].invalid && 
+	    		(formEmpleados.controls['telefono'].dirty || 
+	    		formEmpleados.controls['telefono'].touched)" 
+	    		class="alert alert-danger">
+	    		<br>
+	        <div *ngIf="formEmpleados.controls['telefono'].errors.required">
+	          El Campo Telefono es Obligatorio.
+	        </div>
+	      </div>
+	    </div>
+
+
+
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="correo"  
+	      	[(ngModel)]="dataEmpleado.correo"
+	      	placeholder="Correo" 
+	      	name="correo"
+	      	formControlName="correo"
+	      	#correo >
+	    	<div 
+	    		*ngIf="formEmpleados.controls['correo'].invalid && 
+	    		(formEmpleados.controls['correo'].dirty || 
+	    		formEmpleados.controls['correo'].touched)" 
+	    		class="alert alert-danger">
+	    		<br>
+	        <div *ngIf="formEmpleados.controls['correo'].errors.required">
+	          El Campo Correo es Obligatorio.
+	        </div>
+	      </div>
+	    </div>
+
+
+	  </div>
+	   <br>
+	  <div class="form-row">
+	    <div class="col">
+	      <input 
+	      	type="text" 
+	      	class="form-control" 
+	      	id="salario" 
+	      	placeholder="Salario" 
+	      	name="salario"
+	      	formControlName="salario" 
+	      	#salario 
+	      	[(ngModel)]="dataEmpleado.salario">
+	      <div 
+	      	*ngIf="formEmpleados.controls['salario'].invalid && 
+	      	(formEmpleados.controls['salario'].dirty || 
+	      	formEmpleados.controls['salario'].touched)" 
+	      	class="alert alert-danger">
+	      	<br>
+	        <div *ngIf="formEmpleados.controls['salario'].errors.required">
+	          El Campo Salario es Obligatorio.
+	        </div>
+	      </div>
+
+
+
+	    </div>
+	  </div>
+	  <br>
+	  <input 
+	  	class="btn-enviar" 
+	  	type="submit" 
+	  	value="Editar Empleado">
+	</form>
+</div>
+

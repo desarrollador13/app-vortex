@@ -1,0 +1,19 @@
+.container-size{
+	width: 68%;
+	margin-top: 45px;
+}
+
+.btn-enviar{
+	width: 20%;
+  margin-left: 362px;
+  background-color: #3393FF;
+  font-weight: bold;
+}
+
+h3{
+	color: #FFFF;
+}
+
+.message{
+	font-weight: bold;
+}
